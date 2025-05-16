@@ -78,12 +78,12 @@ const DrinksMenu = () => {
     >
       <div className="px-[15px]">
         <div>
-        <h1 className=" font-semibold text-primary flex justify-center text-[40px] mt-[5rem] text-center ">Drinks Menu</h1>
+        <h1 className=" font-semibold text-primary flex justify-center text-[50px] mt-[5rem] text-center ">Drinks Menu</h1>
       </div>
       <div className="p-[10px] bg-secondary my-[50px]  bg-[#fcedda] m-auto space-y-12 rounded-2xl ">
         {foodSections.map((section) => (
           <section key={section.title}>
-            <h2 className="text-primary uppercase text-[30px] flex  justify-center font-bold mb-6 border-b-4 border-dashed border-gray-600 pb-2">
+            <h2 className="text-primary uppercase text-[20px] flex  justify-center font-bold mb-6 border-b-4 border-dashed border-gray-600 pb-2">
               {section.title}
             </h2>
             <div className="flex flex-col gap-6">
