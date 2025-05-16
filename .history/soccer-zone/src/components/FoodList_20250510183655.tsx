@@ -1,0 +1,25 @@
+import React from "react";
+
+interface FoodListItemProps {
+  name: string;
+  description: string;
+  price: number;
+}
+
+const formatNaira = (amount: number) => {
+  return "₦" + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+const FoodList: React.FC<FoodListItemProps> = ({ name, description, price }) => {
+  return (
+    <div className="flex justify-between border-b border-dashed py-2">
+      <div>
+        <div className="font-semibold cursor-pointer">{name}</div>
+        <div className="text-sm text-secondary-d">{description}</div>
+      </div>
+      <div className="font-mono font-bold">{formatNaira(price)}</div>
+    </div>
+  );
+};
+
+export default FoodList;

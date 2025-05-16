@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer components {
+  /* PRIMARY COLORS */
+  .bg-primary {
+    @apply bg-[#00a650];
+  }
+
+  .bg-primary-d {
+    @apply bg-[#006837];
+  }
+
+  .text-primary {
+    @apply text-[#00a650];
+  }
+
+  .text-primary-dark {
+    @apply text-[#006837];
+  }
+
+  /* SECONDARY COLORS */
+  .bg-secondary {
+    @apply bg-[#ffffff];
+  }
+
+  .bg-secondary-d {
+    @apply bg-[#333333];
+  }
+
+  .text-secondary {
+    @apply text-[#ffffff];
+  }
+
+  .text-secondary-dark {
+    @apply text-[#333333];
+  }
+
+  /* ACCENT COLORS */
+  .bg-accent {
+    @apply bg-[#a2ff73];
+  }
+
+  .bg-accent-dark {
+    @apply bg-[#000000];
+  }
+
+  .text-accent {
+    @apply text-[#a2ff73];
+  }
+
+  .text-accent-dark {
+    @apply text-[#000000];
+  }
+
+  /* Example Button */
+  .btn-primary {
+    @apply bg-[#00a650] text-white px-4 py-2 rounded font-semibold;
+  }
+
+  .btn-accent {
+    @apply bg-[#a2ff73] text-[#000000] px-4 py-2 rounded font-semibold;
+  }
+}

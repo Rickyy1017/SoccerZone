@@ -1,0 +1,90 @@
+import Layout from "../components/Layout";
+import { useNavigate } from "react-router-dom";
+import { APP_ROUTES } from "../routes/AppRoutes";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import FoodList from "../components/FoodList";
+import Bg from "../assets/svg/bg.png"
+
+const foodSections = [
+  {
+    title: "Starters",
+    items: [
+      { name: "Spring Rolls", description: "Crispy spring rolls filled with a savory vegetable mixture, accompanied by soy and sweet chili sauce", price: 11800 },
+      { name: "Chicken Wings", description: "Seasoned chicken wings, fried to perfection, with your choice of BBQ or chili sauce.", price: 11800 },
+      { name: "Fried Calamari", description: "Tender breaded calamari rings, served with a classic tartar sauce.", price: 13800 },
+      { name: "Shrimp Coconut", description: "Golden breaded shrimp, fried and served with tartar sauce for a delightful dip.", price: 12800 },
+      { name: "Taco Chicken", description: "Taco bread generously stuffed with a savory mixture of chicken, red and green bell peppers and topped with crispy onion", price: 13200 },
+      { name: "Quesadillas ", description: "Flour tortillas stuffed with your choice of chicken or shrimp, combined with bell peppers, onions, and a blend of cheeses, served with guacamole and sour cream.", price: 18800 },
+      { name: "Seafood Combo", description: "A delightful assortment of fried calamari, shrimp spring rolls, shrimp suya skewers, grouper sticks and salmon cake.", price: 32800 },
+      { name: "Sport Zone Combo", description: "A generous combination of shrimp coconut, chicken wings, spring rolls, cheese balls, and yam fingers, served with cocktail, tartar, and chili red sauces.", price: 32800 },
+      { name: "Grilled Suya Skewers", description: "Your choice of beef, chicken, or shrimp, marinated in suya spices and grilled, served with fresh tomato and onion.", price: 14200 },
+      { name: "Truffle Fries", description: "Golden fries drizzled with a rich, creamy truffle sauce, topped with sautéed mushrooms, freshly grated Parmesan, and garnished with spring onions.", price: 11800 },
+      { name: "Grouper Sticks", description: "Crispy fried grouper fish, served with a side of tartar sauce and a fresh wedge of lemon.", price: 12400 },
+      { name: "Crispy Salmon Cake", description: "A flavorful mix of salmon, potato, ginger, onion, and mozzarella cheese, rolled and fried to perfection. Served with creamy white salmon sauce, red chili pepper sauce, a lemon wedge, and fresh spring onions.", price: 12200 },
+      { name: "Mini Beef Burger", description: "A smaller version of our Classic Burger, featuring grilled Premium Angus beef, cheddar cheese, grilled onions, sautéed mushrooms, tomato, iceberg lettuce, pickles, and cocktail sauce.", price: 12800 },
+      { name: "Naija Bites", description: "A vibrant combination of yam fingers, fried plantain, chicken suya, peppered chicken wings, peppered snails, and peppered gizzards, served with a tangy chili red sauce for dipping.", price: 28200 },
+    ], 
+  }, 
+  {
+  title: "Salads",
+  items: [
+    { name: "Caesar Salad", description: "Romaine lettuce with Caesar dressing", price: 7800 },
+    { name: "Greek Salad", description: "Tomatoes, cucumbers, olives, feta", price: 8400 },
+    { name: "Garden Salad", description: "Mixed greens with vinaigrette", price: 6900 },
+    { name: "Pasta Salad", description: "Cold pasta with veggies and dressing", price: 7400 },
+  ],
+},
+
+  
+];
+
+const FoodMenu = () => {
+  const navigate = useNavigate();
+   const navigate = useNavigate();
+
+  const handleDetails = () => {
+    navigate(APP_ROUTES.DETAILS);
+  };
+
+
+  return (
+   <div className="bg-secondary-d" style={{ backgroundImage: `url(${Bg})` }}>
+     <Layout
+      navbar={
+        <Navbar
+          onButtonClick={() => navigate(APP_ROUTES.HOME)}
+          buttonText="Menu"
+        />
+      }
+      footer={<Footer />}
+    >
+      <div>
+        <h1 className=" font-semibold text-primary flex justify-center text-[70px] mt-[10rem] text-center ">Food Menu</h1>
+      </div>
+      <div className="p-[40px] bg-secondary my-[50px] w-[90%] bg-[#fcedda] m-auto space-y-12 rounded-2xl ">
+        {foodSections.map((section) => (
+          <section key={section.title}>
+            <h2 className="text-primary text-[40px] flex  justify-center font-bold mb-6 border-b-4 border-dashed border-gray-600 pb-2">
+              {section.title}
+            </h2>
+            <div className="">
+              {section.items.map((item) => (
+                <FoodList
+                
+                  key={item.name}
+                  name={item.name}
+                  description={item.description}
+                  price={item.price}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </Layout>
+   </div>
+  );
+};
+
+export default FoodMenu;

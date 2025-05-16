@@ -1,0 +1,67 @@
+import Layout from "../components/Layout";
+import { useNavigate } from "react-router-dom";
+import { APP_ROUTES } from "../routes/AppRoutes";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import FoodListItem from "../components/FoodList";
+
+const foodSections = [
+  {
+    title: "Starters",
+    items: [
+      { name: "Spring Rolls", description: "Crispy spring rolls filled with a savory vegetable mixture, accompanied by soy and sweet chili sauce", price: 699 },
+      { name: "Stuffed Mushrooms", description: "Cheese and herbs stuffed mushrooms", price: 799 },
+      { name: "Garlic Bread", description: "Toasted bread with garlic butter", price: 499 },
+      { name: "Spring Rolls", description: "Crispy vegetable spring rolls", price: 599 },
+      { name: "Chicken Wings", description: "Spicy grilled chicken wings", price: 899 },
+      { name: "Mozzarella Sticks", description: "Fried mozzarella cheese sticks", price: 649 },
+      { name: "Onion Rings", description: "Crispy fried onion rings", price: 549 },
+      { name: "Deviled Eggs", description: "Classic deviled eggs", price: 499 },
+      { name: "Caprese Salad", description: "Tomato, mozzarella, basil", price: 749 },
+      { name: "Calamari", description: "Fried squid rings", price: 999 },
+      { name: "Potato Skins", description: "Loaded potato skins", price: 699 },
+      { name: "Nachos", description: "Tortilla chips with cheese and jalapenos", price: 799 },
+      { name: "Meatballs", description: "Italian style meatballs", price: 849 },
+      { name: "Shrimp Cocktail", description: "Chilled shrimp with cocktail sauce", price: 1099 },
+    ],
+  },
+  // ... other sections omitted for brevity
+];
+
+const FoodMenu = () => {
+  const navigate = useNavigate();
+
+  return (
+    <Layout
+      navbar={
+        <Navbar
+          onButtonClick={() => navigate(APP_ROUTES.HOME)}
+          buttonText="Menu"
+        />
+      }
+      footer={<Footer />}
+    >
+      <div className="p-4 space-y-12">
+        {foodSections.map((section) => (
+          <section key={section.title}>
+            <h2 className="text-2xl font-bold mb-6 border-b-4 border-dashed border-gray-600 pb-2">
+              {section.title}
+            </h2>
+            <div>
+              {section.items.map((item) => (
+                <FoodListItem
+                  key={item.name}
+                  name={item.name}
+                  description={item.description}
+                  price={item.price}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </Layout>
+  );
+};
+
+export default FoodMenu;

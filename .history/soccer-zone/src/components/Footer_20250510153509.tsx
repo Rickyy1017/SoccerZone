@@ -1,0 +1,12 @@
+import React from "react";
+import Logo from "../assets/svg/soccer zone.png";
+
+const Footer: React.FC = () => {
+  return (
+    <footer className="flex bg-[#000] items-center justify-center py-] ">
+      <img src={Logo} alt="Soccer Zone Logo" className="w-[130px] h-auto" />
+    </footer>
+  );
+};
+
+export default Footer;
